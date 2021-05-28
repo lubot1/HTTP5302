@@ -42,8 +42,8 @@ p {
     left: 1%;
 }
 .roleName {
-    padding: 1% 2%;
-    margin: 0% 1%;
+    padding: 5px 10px;
+    margin: 0% 10px;
 }
 @media only screen and (max-width: 960px)  {
     #EmployeeListing {
