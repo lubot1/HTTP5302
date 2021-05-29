@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./src/EmployeeCard.js"></script>
     <script src="./src/DataFetch.js" defer></script>
+    <script src="./src/filterEmployees.js" defer></script>
     <link rel="stylesheet" href="./stylesheets/main.css">
     <title>Code Challenge</title>
 </head>
@@ -14,7 +14,7 @@
     <form action="" name="roles-filter">
         <h2>Filter by role</h2>
         <select name="roles" id="rolesPicker">
-            <option value="0" selected="selected">All</option>
+            <option value='all' selected="selected">All</option>
         </select>
     </form>
     <div id="EmployeeListing"></div>

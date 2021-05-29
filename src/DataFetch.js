@@ -6,7 +6,7 @@ fetch('http://sandbox.bittsdevelopment.com/code1/fetchroles.php')
   .then(data => {
     data.forEach(role => {
       var roleElement = addElement('option',role.rolename);
-      roleElement.setAttribute('value',role.roleid);
+      roleElement.setAttribute('value',role.rolename);
       filter.appendChild(roleElement);
     });
   });
@@ -60,6 +60,10 @@ fetch('http://sandbox.bittsdevelopment.com/code1/fetchemployees.php')
         //Set role color
         newRole.style.backgroundColor = role.rolecolor;
 
+        //Add role class to employee card to assist with filtering
+        newEmployeeCard.setAttribute('class', newEmployeeCard.className + " " + rolename);
+
+        // Append role to employee card
         rolesContainer.appendChild(newRole);
       });
       //Append roles container
