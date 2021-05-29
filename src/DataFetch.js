@@ -1,4 +1,15 @@
 let root = document.getElementById('EmployeeListing');
+let filter = document.forms[0].roles;
+
+fetch('http://sandbox.bittsdevelopment.com/code1/fetchroles.php')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(role => {
+      var roleElement = addElement('option',role.rolename);
+      roleElement.setAttribute('value',role.roleid);
+      filter.appendChild(roleElement);
+    });
+  });
 
 fetch('http://sandbox.bittsdevelopment.com/code1/fetchemployees.php')
   .then(response => response.json())
