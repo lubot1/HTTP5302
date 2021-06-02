@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Intro to v-bind</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.container{background:#cecece;}
+		</style>
+	</head>
+	<body>
+	
+	<div id="app">
+		<!--
+		//step 1: open console
+		//step 2: inspect "look at me!" HTML
+		//step 3: notice how the class is set for the span to "container"
+		
+		v-bind:html_attribute_key="data_object_property"
+		
+		or 
+		
+		v-bind:html_attribute_key="'string_literal'"
+		
+		EXAMPLES
+		data properties
+			v-bind:style="newStyle"
+			v-bind:alt="newAlt"
+		
+		string literals
+			v-bind:href="'www.vuejs.org'"
+			v-bind:style="'display:block;margin-top:20px;'"
+			v-bind:alt="'New Alt Text'"
+		
+		WARNING: Vue.js doesn't like dynamically setting IDs. Try it!
+		
+		ASYNCHRONOUS LEARNING EXERCISE
+			1. Create an image and set the following attributes with Vue {src, alt, title}
+			2. Augment the span below to include another class called "highlight", which has a yellow border.
+		-->
+		<span v-bind:class="loadClass" v-bind:style='highlightStyle'>
+			look at me!
+		</span>
+        <img src="" alt="" v-bind:alt="altText" v-bind:src='srcText' v-bind:title='titleText'>
+	</div>
+	
+	<script>
+	var app = new Vue({
+		//Bind Vue object to HTML element through query selector
+		el: '#app',
+		data:{
+			loadClass : 'container highlight',
+            altText : 'Cute baby yoda drinking tea',
+            srcText : 'https://images.ctfassets.net/g8qtv9gzg47d/6SiUg4TCwLA9OfEy3KlQy7/41c90a47f0250d130323056f69f6cdca/5de2bba479d7577cd722e553.jpeg?fl=progressive&fm=jpg&q=80',
+            titleText : 'Baby Yoda',
+            highlightStyle : 'border: 1px solid yellow;'
+			//newStyle : 'font-size:30px;',
+			//newAlt : 'dynamically set alt!'
+		}
+	});
+	
+	</script>
+	</body>
+</html>
