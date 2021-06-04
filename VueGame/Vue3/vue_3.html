@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>v-if If Statements</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.special {background:yellow; border: 1px dotted #fe0000; padding:30px; display:block; text-align:center;}
+			.important {font-weight:bold; font-size:30px;}
+            #app {max-width: 20%; margin: auto; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; background-color: burlywood;}
+            #app:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);}
+		</style>
+	</head>
+	<body>
+	
+	<div id="app">
+        <img v-if="profile.pic" :src="profile.pic.src" :alt="profile.pic.alt" :style="profile.pic.width">
+        <p v-else>No profile picture available</p>
+        <h2 v-if="profile.fname && profile.lname">{{profile.fname}} {{profile.lname}} </h2>
+		<span v-else>
+			No Profile Data found.
+		</span>
+        <p v-if="profile.bio">{{ profile.bio }}</p>
+        <p v-else>No bio</p>
+        <p v-if="profile.desc">{{ profile.desc }}</p>
+        <p v-else>No desc</p>
+	</div>
+	
+	<script>
+	var app = new Vue({
+		el: '#app',
+		
+		data:{
+			
+			profile:{
+				fname: "Luis",
+				lname: "Botello Sanchez",
+                desc: "Young developer with a dream",
+                bio: "Born in 1997, this web developer is ready to program",
+                pic: {
+                    src: './Images/PORTRAIT.jpg',
+                    width: 'width: 40%;',
+                    alt: 'Portrait of Luis'
+                }
+			}
+			
+		}
+		
+	});
+	</script>
+	
+		<!--
+		//step 1: Read Code Above
+		//step 2: Does the profile show up?
+		
+		v-if="boolean_expression"
+		v-else-if="boolean_expression"
+		v-else
+		
+		
+		You can code an if, else if, else statement into your render using the v-if, v-else-if, v-else.
+		Just like in regular programming, v-else has no condition
+		
+		Notice how the "profile" object is null. Reminder that null is Falsey in the boolean context.
+		
+		ASYNCHRONOUS LEARNING EXERCISE
+		1. Use the profile object to store information about yourself {fname, lname, desc, bio, pic}
+		2. Create a figure, figcaption, and image markup which acts as a description for yourself
+			(Something like this https://www.w3schools.com/howto/howto_css_cards.asp)
+		3. Write conditionals if information is missing (i.e. 'no bio available' if bio is blank, generic image if no pic is found)
+		-->
+	</body>
+</html>
