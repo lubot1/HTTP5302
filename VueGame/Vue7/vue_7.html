@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>J1 Practice</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.formfield{margin-bottom:10px;}
+		</style>
+	</head>
+	<body>
+        <p>Telemarketer or not? <a href="https://cemc.uwaterloo.ca/contests/computing/2018/stage%201/juniorEF.pdf">from the J1 problem hosted by the CCC.</a></p>
+        <div id="app">
+            <div class="formfield">
+                <label>1st Digit: <label> <input v-model="first_digit">
+            </div>
+            <div class="formfield">
+                <label>2nd Digit: <label> <input v-model="second_digit">
+            </div>
+            <div class="formfield">
+                <label>3rd Digit: <label> <input v-model="third_digit">
+            </div>
+            <div class="formfield">
+                <label>4th Digit: <label> <input v-model="fourth_digit">
+            </div>
+            <div id="result">
+                <span>{{telemarketer_check}}</span>
+            </div>
+        </div>
+	
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    first_digit:0,
+                    second_digit:0,
+                    third_digit:0,
+                    fourth_digit:0,
+                },
+                computed:{
+                    telemarketer_check: function(){
+                        if(this.first_digit == 8 || this.first_digit == 9) {
+                            if(this.fourth_digit == 8 || this.fourth_digit == 9) {
+                                if(this.second_digit == this.third_digit) {
+                                    console.log(true);
+                                    return "ignore";
+                                } else {
+                                    return "answer";
+                                }
+                            } else {
+                                return "answer";
+                            }
+                        } else {
+                            return "answer";
+                        }
+                    }
+                }
+            });
+        
+        </script>
+	<!--
+		v-model will allow you to quickly bind form elements to the data property.
+		Make sure to set a default value!
+		
+		ASYNCHRONOUS LEARNING EXERCISE : J1
+		- Find any J1 problem
+		- Imagine an interface that allows the user to enter data on the webpage
+		- Build using v-model and computed properties!
+	
+	-->
+	</body>
+</html>
