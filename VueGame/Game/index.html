@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1 id="title" v-bind:style="style">{{ title }}</h1>
-    <div id="app">
+    <div id="app" v-on:click="changeTurn();">
         <h2 v-if="playerTurn">Player 1 Turn</h2>
         <h2 v-else>Player 2 Turn</h2>
         <!-- Lab 4 loop rendering below -->

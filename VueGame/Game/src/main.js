@@ -1,12 +1,19 @@
 Vue.component('square', { //Lab 6 vue componenets
-    props: ['x', 'y', 'player'],
+    props: ['x', 'y', 'player', 'color'],
     template: 
     `<div
         v-bind:class="'gameSquare'"
-        v-bind:style="{'height':'100px', 'width':'100px', 'border':'1px black solid'}">
+        v-bind:style="{'height':'100px', 'width':'100px', 'border':'1px black solid', 'backgroundColor':color}"
+        v-on:click="playTurn();">
     </div>`,
     methods: {
         playTurn: function() {
+            if (app.$data.playerTurn == true) {
+                this.color = 'blue';
+            } else {
+                this.color = 'red';
+            }
+            
         }
     },
 });
@@ -29,7 +36,14 @@ var app = new Vue({
         playerTurn: true, //Lab 3 conditionals
     },
     methods: {
-        
+        changeTurn: function() {
+            if (this.playerTurn == true) {
+                this.playerTurn = false;
+            } else {
+                this.playerTurn = true;
+            }
+            
+        }
     }
 });
 // I'm too lazy to write out 42 square properties so I just push them below into an array
