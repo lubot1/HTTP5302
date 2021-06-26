@@ -15,7 +15,9 @@
         <h2 v-if="playerTurn">Player 1 Turn</h2>
         <h2 v-else>Player 2 Turn</h2>
         <!-- Lab 4 loop rendering below -->
-        <square v-for="square in squares" v-bind:x="square.x" v-bind:y="square.y" v-bind:player="square.player"v-bind:key="square.id"></square>
+        <div v-for="row in rows" v-bind:style="{'display': 'flex', 'flexDirection': 'row',}">
+            <square v-for="square in squares" v-bind:x="square.x" v-bind:y="square.y" v-bind:player="square.player"v-bind:key="square.id"></square>
+        </div>
     </div>
 </body>
 </html>
