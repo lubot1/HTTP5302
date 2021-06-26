@@ -1,11 +1,11 @@
-Vue.component('square', { //Lab 6 vue componenets
+Vue.component('square', { //Lab 6 vue components
     props: ['x', 'y', 'player', 'color'],
     template: 
     `<div
         v-bind:class="'gameSquare'"
         v-bind:style="{'height':'100px', 'width':'100px', 'border':'1px black solid', 'backgroundColor':color}"
         v-on:click="playTurn();">
-    </div>`,
+    </div>`, //Lab 5 event handler
     methods: {
         playTurn: function() {
             if (app.$data.playerTurn == true) {
@@ -28,6 +28,7 @@ var title = new Vue({
         title: 'Connect 4', //Lab 0 prototype step
     }
 });
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -46,6 +47,7 @@ var app = new Vue({
         }
     }
 });
+
 // I'm too lazy to write out 42 square properties so I just push them below into an array
 var counter = 0;
 var i = 0;
